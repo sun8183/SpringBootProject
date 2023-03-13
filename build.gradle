@@ -31,6 +31,7 @@ buildscript {
         implementation('org.projectlombok:lombok:1.18.22')
         implementation('org.springframework.boot:spring-boot-starter-data-jpa')
         implementation('com.h2database:h2')
+        implementation('org.springframework.boot:spring-boot-devtools')
         annotationProcessor('org.projectlombok:lombok')
         testImplementation('org.springframework.boot:spring-boot-starter-test')
         testImplementation('org.junit.jupiter:junit-jupiter-api:5.8.1')
