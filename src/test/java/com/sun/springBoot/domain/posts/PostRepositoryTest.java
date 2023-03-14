@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -42,5 +43,24 @@ public class PostRepositoryTest {
         assertThat(posts.getContent()).isEqualTo(content);
 
 
+    }
+
+    @Test
+    public void BaseTimeEntity_Test(){
+        LocalDateTime now = LocalDateTime.of(2023,3,15,0,0,0);
+        postsRepository.save(Posts.builder()
+                .title("Title")
+                .content("content")
+                .author("author")
+                .build());
+
+        List<Posts> postsList = postsRepository.findAll();
+
+        Posts posts = postsList.get(0);
+        System.out.println(">>>>>> createDate="+posts.getCreateDate());
+        System.out.println(">>>>>> modifiedDate="+posts.getModifiedDate());
+
+        assertThat(posts.getCreateDate()).isAfter(now);
+        assertThat(posts.getModifiedDate()).isAfter(now);
     }
 }

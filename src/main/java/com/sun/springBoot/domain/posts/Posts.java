@@ -1,5 +1,6 @@
 package com.sun.springBoot.domain.posts;
 
+import com.sun.springBoot.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor /* 기본생성자 자동추가 */
 @Entity
-public class Posts { /* Entity 클래스 (실제 쿼리를 날리기 보단 Entity 에서의 수정, 삭제 )*/
+public class Posts extends BaseTimeEntity { /* Entity 클래스 (실제 쿼리를 날리기 보단 Entity 에서의 수정, 삭제 )*/
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) /* pk */
